@@ -1,0 +1,205 @@
+[
+    {
+        "id": "dd2a12acf3e046e8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "128b6111c8782ae5",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt.eclipseprojects.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5009dcd3af40e3be",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ecefaae6c1a2927b",
+        "type": "inject",
+        "z": "dd2a12acf3e046e8",
+        "name": "Red Light",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "trafficlight/bradford",
+        "payload": "{light: red, signal: ON, duration: 5}",
+        "payloadType": "str",
+        "x": 140,
+        "y": 40,
+        "wires": [
+            [
+                "9e86d0ddb41e744a"
+            ]
+        ]
+    },
+    {
+        "id": "c256b74e13c5e127",
+        "type": "debug",
+        "z": "dd2a12acf3e046e8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d5d512ac4310af07",
+        "type": "mqtt in",
+        "z": "dd2a12acf3e046e8",
+        "name": "Subscribe",
+        "topic": "trafficlight/bradford",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "5009dcd3af40e3be",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "c256b74e13c5e127"
+            ]
+        ]
+    },
+    {
+        "id": "9e86d0ddb41e744a",
+        "type": "mqtt out",
+        "z": "dd2a12acf3e046e8",
+        "name": "Publish",
+        "topic": "trafficlight/bradford",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5009dcd3af40e3be",
+        "x": 520,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8c16e96a28067d1e",
+        "type": "inject",
+        "z": "dd2a12acf3e046e8",
+        "name": "Amber Light",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "trafficlight/bradford",
+        "payload": "{light: amber, signal: ON, duration: 2}",
+        "payloadType": "str",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "9e86d0ddb41e744a"
+            ]
+        ]
+    },
+    {
+        "id": "95d9bf3e1cdb7fe9",
+        "type": "inject",
+        "z": "dd2a12acf3e046e8",
+        "name": "Green Light",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "trafficlight/bradford",
+        "payload": "{light: green, signal: ON, duration: 10}",
+        "payloadType": "str",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "9e86d0ddb41e744a"
+            ]
+        ]
+    }
+]

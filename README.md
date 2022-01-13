@@ -13,6 +13,7 @@ Note that this program is expected to run on a Raspberry Kit
 - publish.py (This is the MQTT program which contains a function to publish data using a public broker. The broker and topic can be changed in the main.py file)
 - subscribe.py (This is hte MQTT program whcih contains the function to subscribe to a topic using a public broker. The broker and topic can be changed in the main.py file)
 - 20026427.docx (This contains the summary of this course work)
+- flows.json (Node-Red export file to test the MQTT process)
 ```
 
 ## Contributors
