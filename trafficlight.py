@@ -7,15 +7,18 @@ greenlight = LED(26)
 
 
 def blink_red(duration=5):
-    redlight.blink(1, duration)  # default duration of 5
-    sleep(1)
+    redlight.on()  # default duration of 5
+    sleep(duration)
+    redlight.off()
 
 
 def blink_amber(duration=2):
-    amberlight.blink(1, duration)  # default duration of 2
-    sleep(1)
+    amberlight.on()  # default duration of 2
+    sleep(duration)
+    amberlight.off()
 
 
 def blink_green(duration=10):
-    greenlight.blink(1, duration)  # default duration of 10
-    sleep(1)
+    greenlight.on()  # default duration of 10
+    sleep(duration)
+    greenlight.off()

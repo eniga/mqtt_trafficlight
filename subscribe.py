@@ -10,7 +10,7 @@ def subscribe(broker, topic):
     client.loop_start()  # start the loop
     print("Subscribing to topic", topic)
     client.subscribe(topic)
-    sleep(4)
+    sleep(40)
     client.loop_stop()  # stop the loop
 
 
